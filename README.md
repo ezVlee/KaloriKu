@@ -18,7 +18,7 @@ KaloriKu is a web-based AI application that helps users identify food items from
 
 ---
 
-## **Anggota Tim**
+## **Team Members**
 | **Student ID**   | **Name**                    | **Learning Path**                |
 |------------------|-----------------------------|----------------------------------|
 | MC135D5X0073     | Nailah Tsabitah. M          | Machine Learning Engineer        |
