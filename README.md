@@ -120,9 +120,11 @@ The KaloriKu web application is built with **Laravel** (PHP) for the backend and
 
 ## 📸 Screenshots & Demo
 <div align="center">
-  ![Home Page](link)
+  ![Home Page](https://github.com/ezVlee/KaloriKu/blob/main/images/Screenshot 2025-06-15 at 13.43.53.png)
   <br>
-  ![Food Recognition Demo](link)
+  ![Food Recognition Demo](https://github.com/ezVlee/KaloriKu/images/blob/main/Screenshot 2025-06-15 at 14.00.33.png)
+  <br>
+  ![Landing Page](https://github.com/ezVlee/KaloriKu/blob/main/images/Screenshot 2025-06-15 at 14.01.18.png)
 </div>
 
 ## 🧑‍💻 Tech Stack
