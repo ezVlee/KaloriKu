@@ -118,6 +118,13 @@ The KaloriKu web application is built with **Laravel** (PHP) for the backend and
 
 ---
 
+## 📸 Screenshots & Demo
+<div align="center">
+  ![Home Page](link)
+  <br>
+  ![Food Recognition Demo](link)
+</div>
+
 ## 🧑‍💻 Tech Stack
 
 - **Machine Learning**: TensorFlow, Keras, OpenCV
@@ -144,19 +151,49 @@ The KaloriKu web application is built with **Laravel** (PHP) for the backend and
 
 ## 💡 How to Use
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/kaloriku.git
-   cd kaloriku
-2. Run The App:
-   ```bash
-   php artisan run serve
-   ```
-   don't forget to run the XAMPP and configure the `.env`
-4. Open your browser and go to localhost:8000
-5. Access the deployed app
-   You can find deployed app through this link :
+Follow this steps to run Kaloriku on your local machine or server:
 
-   https://laravel-kaloriku-production.up.railway.app/
-   
-   Start with `Register` your account, then `Login`, finally `try the feature` by yourself.
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/ezVlee/KaloriKu.git
+   cd KaloriKu
+2. **Install Dependencies**
+   ```bash
+   composer install
+   npm install
+   npm run dev
+3. **Configure Environment**
+   ```bash
+   cp .env.example .env 
+4. **Generate application key**
+   ```bash
+   php artisan key:generate
+5. **Run migrations and seed database (if needed)**
+   ```bash
+   php artisan migrate --seed
+6. **Start the server**
+   ```bash
+   php artisan serve
+7. **Access the app**
+   ```bash
+   http://localhost:8000
+
+## 🤝 Contribution Guide
+Thank you for your interest in contributing to KaloriKu! Here’s how you can help:
+
+1. **Fork the repository**
+
+2. **Create a new branch**
+
+   ```bash
+   git checkout -b feature/your-feature-name
+3. **Make your changes**
+4. **Test your changes locally**
+5. **Commit Your changes**
+   ```bash
+   git commit -m "Add feature XYZ"
+6. **Push to your fork**
+   ```bash
+   git push origin feature/your-feature-name
+7. **Create a pull request**
