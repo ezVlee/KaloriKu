@@ -1,3 +1,4 @@
+<p align="center"><a href="https://laravel-kaloriku-production.up.railway.app/" target="_blank"><img src="" width="400"></a></p>
 # 🍱 KaloriKu – Smart IndonesiannFood Recognition & Calorie Estimation
 
 *A Capstone Project by Team CC25-CR353 – Coding Camp*
