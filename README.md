@@ -1,34 +1,158 @@
-# **KaloriKu**
+# 🍱 KaloriKu – Smart IndonesiannFood Recognition & Calorie Estimation
 
-**A Smart Web-Based Solution for Food Recognition and Calorie Estimation**  
-*Capstone Project - Coding Camp Team CC25-CR353*
+*A Capstone Project by Team CC25-CR353 – Coding Camp*
 
----
-## **Overview**
-
-KaloriKu is a web-based AI application that helps users identify food items from images and estimate their nutritional content. It simplifies healthy eating by providing quick and accurate insights into calories, carbohydrates, and fat levels — just by taking a photo.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
+> **KaloriKu** is an AI-powered web application that simplifies healthy living by identifying Indonesian food from images and estimating its nutritional content — all in a single click.
 
 ---
 
-## Key Features
+## 🚀 Overview
 
-- **Image-Based Food Recognition**: Capture a photo of a food item.
-- **Automatic Nutrition Estimation**: Instantly view estimated **calories**, **carbohydrates**, and **fat**.
-- **Web-Based Access**: No installation required — accessible from any device with a browser.
+**KaloriKu** is an innovative AI-based calorie tracking application designed specifically for **Indonesian cuisine**, addressing the inaccuracy of global apps in recognizing local dishes. This project tackles a real problem: **87% of Indonesians struggle** to track the nutritional content of traditional foods due to irrelevant global databases and diverse regional recipes.
 
----
-
-## **Team Members**
-| **Student ID**   | **Name**                    | **Learning Path**                |
-|------------------|-----------------------------|----------------------------------|
-| MC135D5X0073     | Nailah Tsabitah. M          | Machine Learning Engineer        |
-| FC525D5Y0114     | Pratama Achmad Al Dzikri    | Front-End dan Back-End Developer |
-| MC325D5Y0399     | Javier Elian Putra Karjadi  | Machine Learning Engineer        |
-| FC786D5Y0448     | Gheryyan Washesya Syagara   | Front-End dan Back-End Developer |
-| MC008D5Y0587     | Feivel Jethro Ezhekiel      | Machine Learning Engineer        |
+The application is built with two main components:
+- **Machine Learning**: Food image classification model
+- **Frontend & Backend**: Web platform with integrated APIs
 
 ---
 
-## Repository Structure
-- `ML/`: Machine Learning models and inference code
-- `FB/`: Front-end and back-end for the web application
+### 🧠 Machine Learning
+
+- **Task**: Food image classification
+- **Framework**: TensorFlow
+- **Architecture**: Convolutional Neural Network (CNN) based on MobileNetV2
+- **Classification Target**: 45+ popular Indonesian dishes
+- **Model Output**: Optimized `.tflite` file for deployment
+
+#### 🔍 Architecture & Model Choice
+
+**Chosen Model**: MobileNetV2
+
+Reasons for Selection:
+- **Efficient and Lightweight**: Designed by Google for low-resource devices, ensuring fast predictions for responsive web interaction
+- **High Accuracy**: Proven performance for image classification tasks
+- **Transfer Learning-Friendly**: Easy to fine-tune for specific datasets
+
+**Approach**: Transfer Learning  
+Instead of training from scratch, we fine-tuned a pre-trained MobileNetV2 model from ImageNet.
+
+**How it works**:
+- Pre-trained model already recognizes general visual features (shapes, textures, colors)
+- Early layers are frozen (non-trainable)
+- Custom classification layers are added and trained on our food dataset
+
+**Model Structure**:
+- `Base Model`: MobileNetV2 (without top classification layer, `include_top=False`)
+- `GlobalAveragePooling2D`: Summarizes key features
+- `Dense(128, activation='relu')`: Learns complex patterns specific to Indonesian food
+- `Dropout(0.5)`: Prevents overfitting
+- `Dense(45+, activation='softmax')`: Final output layer for food class prediction
+
+#### 📊 Data & Training Process
+
+- **Dataset**: 45+ classes of authentic Indonesian dishes, split into training and validation sets
+- **Augmentation**: Used on training data (e.g., horizontal flips) to improve model robustness
+- **Training Parameters**:
+  - **Optimizer**: Adam
+  - **Loss Function**: categorical_crossentropy
+  - **Callback**: ReduceLROnPlateau (auto-tunes learning rate on validation accuracy plateau)
+
+#### 🧪 TFLite Model Conversion
+
+After training and validating the model, it is converted into **TensorFlow Lite (.tflite)** format.
+
+**Purpose**: Optimized deployment
+
+**Benefits**:
+- **Smaller File Size**: Faster app loading and lower bandwidth usage
+- **Faster Inference**: Low-latency predictions
+- **Portability**: Easily deployable across platforms (web, mobile, edge devices)
+
+---
+
+### 💻 Front-End & Back-End
+
+The KaloriKu web application is built with **Laravel** (PHP) for the backend and asset management handled using **Webpack Mix**.
+
+#### 🔧 Backend
+
+- **Framework**: Laravel
+- **Architecture**: MVC (Model-View-Controller)
+- **Features**:
+  - Routing, middleware, and user authentication
+  - RESTful API for interaction with the ML model
+- **Server**: Apache2
+- **Database**: MySQL with phpMyAdmin interface
+
+#### 🖥️ Frontend
+
+- Built using Laravel Mix (Webpack abstraction)
+- Supports asset compilation (JavaScript, CSS, SCSS)
+- Enables auto build, minification, and hot reload for efficient development
+
+#### 🗃️ Database
+- **MySQL** used to manage:
+  - User data
+  - Classification results
+  - Food history
+  - Activity logs
+- Managed using **phpMyAdmin** for ease of table relations and access control
+
+> The synergy between Laravel, Webpack Mix, Apache2, and MySQL provides a **robust, scalable, and developer-friendly** ecosystem. KaloriKu is not just smart in recognizing Indonesian food — it's also reliable and user-focused in design and performance.
+
+---
+
+## ✨ Features
+
+- 📸 **Image-Based Food Detection**  
+  Snap or upload a photo — KaloriKu will automatically identify the food.
+
+- 🧠 **Real-Time Nutrition Estimation**  
+  Instantly estimate **calories**, **carbohydrates**, and **fat content**.
+
+- 🌐 **Fully Web-Based**  
+  No installation needed — works seamlessly on any modern browser and device.
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- **Machine Learning**: TensorFlow, Keras, OpenCV
+- **Back-End**: Laravel (PHP)
+- **Front-End**: HTML, CSS, JavaScript, Laravel Mix
+- **Deployment**: Apache2, MySQL, phpMyAdmin
+
+---
+
+
+## 👥 Team Members
+
+| Student ID     | Name                         | Role                             |
+|----------------|------------------------------|----------------------------------|
+| MC135D5X0073   | Nailah Tsabitah. M           | Machine Learning Engineer        |
+| FC525D5Y0114   | Pratama Achmad Al Dzikri     | Front-End & Back-End Developer   |
+| MC325D5Y0399   | Javier Elian Putra Karjadi   | Machine Learning Engineer        |
+| FC786D5Y0448   | Gheryyan Washesya Syagara    | Front-End & Back-End Developer   |
+| MC008D5Y0587   | Feivel Jethro Ezhekiel       | Machine Learning Engineer        |
+
+---
+
+## 💡 How to Use
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/kaloriku.git
+   cd kaloriku
+2. Run The App:
+   ```bash
+   php artisan run serve
+   ```
+   don't forget to run the XAMPP and configure the `.env`
+4. Open your browser and go to localhost:8000
+5. Access the deployed app
+   You can find deployed app through this link :
+
+   https://laravel-kaloriku-production.up.railway.app/
+   
+   Start with `Register` your account, then `Login`, finally `try the feature` by yourself.
