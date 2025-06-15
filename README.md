@@ -1,4 +1,5 @@
-<p align="center"><a href="https://laravel-kaloriku-production.up.railway.app/" target="_blank"><img src="" width="400"></a></p>
+<p align="center"><a href="https://laravel-kaloriku-production.up.railway.app/" target="_blank"><img src="https://github.com/ezVlee/KaloriKu/blob/main/FB/public/assets/imgs/logo.png" width="400"></a></p>
+
 # 🍱 KaloriKu – Smart IndonesiannFood Recognition & Calorie Estimation
 
 *A Capstone Project by Team CC25-CR353 – Coding Camp*
@@ -128,6 +129,7 @@ The KaloriKu web application is built with **Laravel** (PHP) for the backend and
 
 
 ## 👥 Team Members
+<div align = "center">
 
 | Student ID     | Name                         | Role                             |
 |----------------|------------------------------|----------------------------------|
@@ -136,6 +138,7 @@ The KaloriKu web application is built with **Laravel** (PHP) for the backend and
 | MC325D5Y0399   | Javier Elian Putra Karjadi   | Machine Learning Engineer        |
 | FC786D5Y0448   | Gheryyan Washesya Syagara    | Front-End & Back-End Developer   |
 | MC008D5Y0587   | Feivel Jethro Ezhekiel       | Machine Learning Engineer        |
+</div>
 
 ---
 
